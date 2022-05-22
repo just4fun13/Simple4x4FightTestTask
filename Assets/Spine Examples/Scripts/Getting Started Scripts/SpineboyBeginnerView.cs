@@ -51,7 +51,7 @@ namespace Spine.Unity.Examples {
 		public ParticleSystem gunParticles;
 		#endregion
 
-		SpineBeginnerBodyState previousViewState;
+		SkeletonBodyState previousViewState;
 
 		void Start () {
 			if (skeletonAnimation == null) return;
@@ -88,15 +88,15 @@ namespace Spine.Unity.Examples {
 
 			// Add conditionals to not interrupt transient animations.
 
-			if (previousViewState == SpineBeginnerBodyState.Jumping && newModelState != SpineBeginnerBodyState.Jumping) {
+			if (previousViewState == SkeletonBodyState.Jumping && newModelState != SkeletonBodyState.Jumping) {
 				PlayFootstepSound();
 			}
 
-			if (newModelState == SpineBeginnerBodyState.Jumping) {
+			if (newModelState == SkeletonBodyState.Jumping) {
 				jumpSource.Play();
 				nextAnimation = jump;
 			} else {
-				if (newModelState == SpineBeginnerBodyState.Running) {
+				if (newModelState == SkeletonBodyState.Running) {
 					nextAnimation = run;
 				} else {
 					nextAnimation = idle;

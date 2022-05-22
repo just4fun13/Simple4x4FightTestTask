@@ -36,7 +36,7 @@ namespace Spine.Unity.Examples {
 
 		#region Inspector
 		[Header("Current State")]
-		public SpineBeginnerBodyState state;
+		public SkeletonBodyState state;
 		public bool facingLeft;
 		[Range(-1f, 1f)]
 		public float currentSpeed;
@@ -70,17 +70,17 @@ namespace Spine.Unity.Examples {
 				facingLeft = speedIsNegative; // Change facing direction whenever speed is not 0.
 			}
 
-			if (state != SpineBeginnerBodyState.Jumping) {
-				state = (speed == 0) ? SpineBeginnerBodyState.Idle : SpineBeginnerBodyState.Running;
+			if (state != SkeletonBodyState.Jumping) {
+				state = (speed == 0) ? SkeletonBodyState.Idle : SkeletonBodyState.Running;
 			}
 
 		}
 		#endregion
 
 		IEnumerator JumpRoutine () {
-			if (state == SpineBeginnerBodyState.Jumping) yield break;	// Don't jump when already jumping.
+			if (state == SkeletonBodyState.Jumping) yield break;	// Don't jump when already jumping.
 
-			state = SpineBeginnerBodyState.Jumping;
+			state = SkeletonBodyState.Jumping;
 
 			// Fake jumping.
 			{
@@ -101,12 +101,12 @@ namespace Spine.Unity.Examples {
 				transform.localPosition = pos;
 			}
 
-			state = SpineBeginnerBodyState.Idle;
+			state = SkeletonBodyState.Idle;
 		}
 
 	}
 
-	public enum SpineBeginnerBodyState {
+	public enum SkeletonBodyState {
 		Idle,
 		Running,
 		Jumping

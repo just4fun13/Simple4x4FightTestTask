@@ -3,18 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using Spine.Unity;
 
-public class PlayerControl : MonoBehaviour
+
+namespace Game
 {
-    [SerializeField] SkeletonAnimation anim;
-
-    // Start is called before the first frame update
-    void Start()
+    public class PlayerControl : MonoBehaviour
     {
-    }
+        [SerializeField] SkeletonAnimation anim;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        // Start is called before the first frame update
+        void Start()
+        {
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+
+        }
     }
 }
